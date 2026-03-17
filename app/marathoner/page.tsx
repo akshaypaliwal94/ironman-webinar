@@ -181,7 +181,7 @@ export default function MarathonerPage() {
           <div className="hero-layout">
             <div className="person-wrap reveal">
               <Image
-                src="/satyam.png"
+                src="/satyam-marathoner.png"
                 alt="Satyam Sahai — 17× Ironman Finisher & Active CEO"
                 fill
                 style={{ objectFit: "cover", objectPosition: "center top" }}
