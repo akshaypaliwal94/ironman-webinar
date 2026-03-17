@@ -1,3 +1,5 @@
+"use client";
+
 import Footer from "@/components/Footer";
 
 export default function TermsPage() {
@@ -17,7 +19,7 @@ export default function TermsPage() {
               professional before starting any endurance training programme.
             </p>
           </div>
-          <a href="javascript:history.back()" className="legal-back">← Back</a>
+          <button className="legal-back" onClick={() => window.history.back()}>← Back</button>
         </div>
       </main>
       <Footer />

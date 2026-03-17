@@ -1084,7 +1084,9 @@ body {
 }
 .legal-back {
   font-size: 13px; font-weight: 600;
-  color: rgba(255,255,255,0.45); text-decoration: none;
+  color: rgba(255,255,255,0.45);
+  background: none; border: none; cursor: pointer;
+  padding: 0; text-decoration: none;
   transition: color 0.2s ease; align-self: flex-start;
 }
 .legal-back:hover { color: #fff; }

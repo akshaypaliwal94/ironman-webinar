@@ -1,3 +1,5 @@
+"use client";
+
 import Footer from "@/components/Footer";
 
 export default function PrivacyPage() {
@@ -14,7 +16,7 @@ export default function PrivacyPage() {
               sell or share your data with third parties. For questions, contact us on WhatsApp.
             </p>
           </div>
-          <a href="javascript:history.back()" className="legal-back">← Back</a>
+          <button className="legal-back" onClick={() => window.history.back()}>← Back</button>
         </div>
       </main>
       <Footer />
