@@ -7,6 +7,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import FunnelPopup from "@/components/FunnelPopup";
 import Footer from "@/components/Footer";
 import MobileCTABar from "@/components/MobileCTABar";
+import { AnimatedText } from "@/components/ui/animated-underline-text-one";
 import { useTickets } from "@/contexts/TicketContext";
 
 // ── SVG icons (reused from Hero) ──────────────────────────────────────────
@@ -158,7 +159,15 @@ export default function MarathonerPage() {
 
           <h1 className="hero-h1 reveal" style={{ fontSize: "clamp(38px, 5vw, 72px)" }}>
             Crush Your First or Next Ironman —<br />
-            <span className="accent">Goa 70.3 in Sub-6 Hours</span>
+            <AnimatedText
+              text="Goa 70.3 in Sub-6 Hours"
+              strokeColor="var(--red)"
+              strokeWidth={3}
+              underlineDuration={1.4}
+              underlinePath="M 0,10 Q 75,0 150,10 Q 225,20 300,10"
+              underlineHoverPath="M 0,10 Q 75,20 150,10 Q 225,0 300,10"
+              style={{ color: "var(--red)" }}
+            />
           </h1>
 
           <p className="challenge-line reveal">
