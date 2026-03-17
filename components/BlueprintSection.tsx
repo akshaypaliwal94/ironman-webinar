@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useTickets } from "@/contexts/TicketContext";
 
 const steps = [
@@ -77,6 +77,8 @@ export default function BlueprintSection() {
   const tickets = useTickets();
   const timelineRef = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
+  const iconRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeStep, setActiveStep] = useState<number>(-1);
 
   useEffect(() => {
     const updateLine = () => {
@@ -87,7 +89,19 @@ export default function BlueprintSection() {
         1
       );
       lineRef.current.style.height = `${progress * 100}%`;
+
+      // Find which icon the line tip is currently at
+      const lineTipY = rect.top + progress * rect.height;
+      let current = -1;
+      iconRefs.current.forEach((icon, i) => {
+        if (!icon) return;
+        const iconRect = icon.getBoundingClientRect();
+        const iconCenter = iconRect.top + iconRect.height / 2;
+        if (lineTipY >= iconCenter - 10) current = i;
+      });
+      setActiveStep(current);
     };
+
     window.addEventListener("scroll", updateLine, { passive: true });
     updateLine();
     return () => window.removeEventListener("scroll", updateLine);
@@ -116,13 +130,23 @@ export default function BlueprintSection() {
                     <div className="t-title">{step.title}</div>
                     <p className="t-desc">{step.desc}</p>
                   </div>
-                  <div className="t-icon">{step.icon}</div>
+                  <div
+                    className={`t-icon${activeStep === i ? " t-icon--active" : ""}`}
+                    ref={(el) => { iconRefs.current[i] = el; }}
+                  >
+                    {step.icon}
+                  </div>
                   <div className="t-empty" />
                 </>
               ) : (
                 <>
                   <div className="t-empty" />
-                  <div className="t-icon">{step.icon}</div>
+                  <div
+                    className={`t-icon${activeStep === i ? " t-icon--active" : ""}`}
+                    ref={(el) => { iconRefs.current[i] = el; }}
+                  >
+                    {step.icon}
+                  </div>
                   <div className="t-content">
                     <div className="t-step-label">{step.step}</div>
                     <div className="t-title">{step.title}</div>
