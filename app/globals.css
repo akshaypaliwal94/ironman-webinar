@@ -1116,10 +1116,10 @@ body {
   .hero-layout { margin-top: 14px; gap: 14px; }
   .person-wrap { min-height: 180px; max-height: 210px; }
 
-  /* Meta cards */
+  /* Meta cards — centered 2x2 */
   .meta-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-  .meta-card { padding: 12px 10px; }
-  .meta-icon-wrap { width: 36px; height: 36px; border-radius: 10px; margin-bottom: 8px; }
+  .meta-card { padding: 12px 10px; text-align: center; }
+  .meta-icon-wrap { width: 36px; height: 36px; border-radius: 10px; margin: 0 auto 8px; }
   .meta-label { font-size: 10px; }
   .meta-value { font-size: 13px; }
 
