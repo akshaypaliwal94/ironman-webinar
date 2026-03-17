@@ -45,6 +45,15 @@ function ThankYouContent() {
           <h1 className="ty-headline reveal">You&apos;re In.</h1>
           <p className="ty-subheadline reveal">{subheadline}</p>
           <div className="ty-pill reveal">5th April 2026 · 11:00 AM IST · Live Zoom</div>
+
+          <div className="ty-hero-cta reveal">
+            <p className="ty-hero-cta-label">One last step — join the community:</p>
+            <a href="#" className="cta cta--amber">
+              Click Here to Join Our WhatsApp Community
+              <div className="cta-arrow">→</div>
+            </a>
+            <p className="ty-wa-note" style={{ marginTop: "12px" }}>Takes 10 seconds · Get your session reminder here</p>
+          </div>
         </div>
       </section>
 

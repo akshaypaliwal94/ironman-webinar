@@ -888,6 +888,19 @@ body {
   box-shadow: 0 4px 18px rgba(232,54,10,0.38);
 }
 
+.ty-hero-cta {
+  width: 100%; max-width: 480px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding-top: 24px; margin-top: 6px;
+}
+.ty-hero-cta-label {
+  font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.55); text-transform: uppercase;
+}
+.ty-hero-cta .ty-wa-note { color: rgba(255,255,255,0.4); margin-top: 0; }
+.ty-hero-cta .cta { width: 100%; }
+
 .ty-body {
   background: var(--white); padding: 56px 24px 64px;
 }
