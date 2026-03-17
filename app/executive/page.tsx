@@ -6,8 +6,9 @@ import FaqSection from "@/components/FaqSection";
 import FunnelPopup from "@/components/FunnelPopup";
 import Footer from "@/components/Footer";
 import MobileCTABar from "@/components/MobileCTABar";
+import { clientConfig } from "@/client.config";
 
-export default function ExecutivePage() {
+export default function Funnel1Page() {
   return (
     <main className="has-sticky-cta">
       <FunnelPopup />
@@ -17,7 +18,7 @@ export default function ExecutivePage() {
       <CoachSection />
       <FaqSection />
       <Footer />
-      <MobileCTABar funnel="executive" />
+      <MobileCTABar funnel={clientConfig.funnel1.slug} />
     </main>
   );
 }

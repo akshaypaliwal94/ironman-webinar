@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { clientConfig } from "@/client.config";
 
-const EVENT_DATE = new Date("2026-04-05T05:30:00Z"); // 11:00 AM IST
+const EVENT_DATE = new Date(clientConfig.event.countdownTarget);
 
 function pad(n: number) {
   return String(n).padStart(2, "0");

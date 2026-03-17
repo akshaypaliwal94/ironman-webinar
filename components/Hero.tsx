@@ -4,6 +4,9 @@ import Image from "next/image";
 import Countdown from "./Countdown";
 import ScrollReveal from "./ScrollReveal";
 import { useTickets } from "@/contexts/TicketContext";
+import { clientConfig } from "@/client.config";
+
+const { funnel1, event, pricing } = clientConfig;
 
 const CalendarIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -27,10 +30,10 @@ const UsersIcon = () => (
 );
 
 const metaCards = [
-  { icon: <CalendarIcon />, label: "Date", value: "5th April 2026", delay: "reveal-delay-1" },
-  { icon: <ClockIcon />, label: "Time", value: "11:00 AM IST", delay: "reveal-delay-2" },
-  { icon: <ChatIcon />, label: "Venue", value: "Live Zoom Session", delay: "reveal-delay-3" },
-  { icon: <UsersIcon />, label: "Hosts", value: "Satyam & Mitch", delay: "reveal-delay-4" },
+  { icon: <CalendarIcon />, label: "Date",  value: event.dateDisplay, delay: "reveal-delay-1" },
+  { icon: <ClockIcon />,    label: "Time",  value: event.timeDisplay, delay: "reveal-delay-2" },
+  { icon: <ChatIcon />,     label: "Venue", value: event.platform,    delay: "reveal-delay-3" },
+  { icon: <UsersIcon />,    label: "Hosts", value: funnel1.heroPersonName, delay: "reveal-delay-4" },
 ];
 
 export default function Hero() {
@@ -39,29 +42,21 @@ export default function Hero() {
     <section className="hero">
       <ScrollReveal />
       <div className="hero-inner">
-        <div className="pill reveal">For Entrepreneurs &amp; Senior Executives</div>
+        <div className="pill reveal">{funnel1.pill}</div>
 
         <h1 className="hero-h1 reveal">
-          Elite in Business.<br />
-          <span className="accent">Mediocre in Stamina, Strength &amp; Grit?</span>
+          {funnel1.heroH1Line1}<br />
+          <span className="accent">{funnel1.heroH1Accent}</span>
         </h1>
 
-        <p className="challenge-line reveal">
-          Challenge Yourself to Conquer Ironman 70.3 — Even If You&apos;ve Never Run a Marathon.
-        </p>
+        <p className="challenge-line reveal">{funnel1.heroChallengeLine}</p>
 
-        <p className="body-copy reveal">
-          In one 3-hour webinar, a{" "}
-          <strong>17× Ironman finisher and active CEO</strong> hands you the exact system he built
-          to conquer the world&apos;s toughest endurance race — while running a company. The same
-          elite-level blueprint most executives never access, because{" "}
-          <strong>nobody ever designed one around a schedule like yours.</strong>
-        </p>
+        <p className="body-copy reveal">{funnel1.heroBodyCopy}</p>
 
         <div className="social-proof reveal">
-          <span>🇮🇳 Built by 17× Ironman — Satyam Sahai</span>
+          <span>{funnel1.socialProof1}</span>
           <span className="sep">·</span>
-          <span>🇦🇺 Verified by World #16 Ranked Ironman — Mitch</span>
+          <span>{funnel1.socialProof2}</span>
         </div>
 
         <Countdown />
@@ -70,15 +65,15 @@ export default function Hero() {
           {/* Photo */}
           <div className="person-wrap reveal">
             <Image
-              src="/satyam.png"
-              alt="Satyam Sahai — 17× Ironman Finisher & Active CEO"
+              src={funnel1.heroImage}
+              alt={funnel1.heroImageAlt}
               fill
               style={{ objectFit: "cover", objectPosition: "center top" }}
               priority
             />
             <div className="person-badge">
-              <span className="person-name">Satyam Sahai</span>
-              <span className="person-sub">17× Ironman Finisher &amp; Active CEO</span>
+              <span className="person-name">{funnel1.heroPersonName}</span>
+              <span className="person-sub">{funnel1.heroPersonSub}</span>
             </div>
           </div>
 
@@ -96,11 +91,11 @@ export default function Hero() {
 
         <div className="hero-cta-block reveal">
           <div className="price-row">
-            <span className="price-was">₹999</span>
+            <span className="price-was">{pricing.currency}{pricing.priceWas}</span>
             <span className="price-badge">Today Only</span>
-            <span className="price-now">₹97</span>
+            <span className="price-now">{pricing.currency}{pricing.priceNow}</span>
           </div>
-          <a href="/thank-you?funnel=executive" className="cta">
+          <a href={`/thank-you?funnel=${funnel1.slug}`} className="cta">
             Grab Your Ticket Now <div className="cta-arrow">→</div>
           </a>
           <div className="guarantee">🛡️ 100% Money Back Guarantee — Zero Risk</div>

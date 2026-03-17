@@ -1,11 +1,12 @@
 "use client";
 
 import { createContext, useContext, useState, useEffect } from "react";
+import { clientConfig } from "@/client.config";
 
-const TicketContext = createContext(12);
+const TicketContext = createContext(clientConfig.pricing.seatsTotal);
 
 export function TicketProvider({ children }: { children: React.ReactNode }) {
-  const [tickets, setTickets] = useState(12);
+  const [tickets, setTickets] = useState(clientConfig.pricing.seatsTotal);
 
   useEffect(() => {
     const interval = setInterval(() => {

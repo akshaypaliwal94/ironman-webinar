@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { clientConfig } from "@/client.config";
+
+const { popup } = clientConfig;
 
 export default function FunnelPopup() {
   const [visible, setVisible] = useState(false);
@@ -34,41 +37,38 @@ export default function FunnelPopup() {
         {/* Eyebrow */}
         <div className="fp-eyebrow">
           <span className="fp-eyebrow-line" />
-          THE FINISH STRONG PROJECT
+          {popup.eyebrow}
           <span className="fp-eyebrow-line" />
         </div>
 
         {/* Headline */}
         <h2 className="fp-headline">
-          Have You Done a Triathlon<br />or Marathon{" "}
-          <span className="fp-accent">Before?</span>
+          {popup.headline.split("\n").map((line, i) => (
+            <span key={i}>{line}{i === 0 && <br />}</span>
+          ))}
         </h2>
 
         {/* Options */}
         <div className="fp-options">
-          <button className="fp-option" onClick={() => choose("/marathoner")}>
-            <div className="fp-option-icon">✅</div>
+          <button className="fp-option" onClick={() => choose(popup.option1.route)}>
+            <div className="fp-option-icon">{popup.option1.icon}</div>
             <div className="fp-option-body">
-              <div className="fp-option-title">Yes, I Have</div>
-              <div className="fp-option-sub">I want to race stronger and finally go Sub-6</div>
+              <div className="fp-option-title">{popup.option1.title}</div>
+              <div className="fp-option-sub">{popup.option1.sub}</div>
             </div>
           </button>
 
-          <button className="fp-option" onClick={() => choose("/executive")}>
-            <div className="fp-option-icon">🚀</div>
+          <button className="fp-option" onClick={() => choose(popup.option2.route)}>
+            <div className="fp-option-icon">{popup.option2.icon}</div>
             <div className="fp-option-body">
-              <div className="fp-option-title">No, This Is My First Time</div>
-              <div className="fp-option-sub">
-                I want to take on Ironman 70.3 as my next big challenge
-              </div>
+              <div className="fp-option-title">{popup.option2.title}</div>
+              <div className="fp-option-sub">{popup.option2.sub}</div>
             </div>
           </button>
         </div>
 
         {/* Footer */}
-        <p className="fp-footer">
-          Takes 1 second · Shows you the right blueprint instantly
-        </p>
+        <p className="fp-footer">{popup.footer}</p>
       </div>
     </div>
   );
