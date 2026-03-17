@@ -84,6 +84,14 @@ const faqs = [
 
 export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [tickets, setTickets] = useState(12);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTickets((prev) => (prev > 1 ? prev - 1 : prev));
+    }, 30000);
+    return () => clearInterval(interval);
+  }, []);
 
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
@@ -118,7 +126,7 @@ export default function FaqSection() {
           </a>
           <div className="guarantee">🛡️ 100% Money Back Guarantee — Zero Risk</div>
           <div className="urgency">
-            🔥 Only <span className="urgency-num">12</span> tickets left — booking closes once full
+            🔥 Only <span className="urgency-num">{tickets}</span> tickets left — booking closes once full
           </div>
         </div>
       </div>
