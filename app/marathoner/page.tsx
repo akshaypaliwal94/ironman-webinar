@@ -154,9 +154,9 @@ export default function MarathonerPage() {
         <div className="hero-inner">
           <div className="pill reveal">For Triathletes, Marathoners &amp; Endurance Athletes</div>
 
-          <h1 className="hero-h1 reveal">
-            Crush Your First (or Next)<br />
-            <span className="accent">Ironman Goa 70.3</span> in Sub-5 Hours
+          <h1 className="hero-h1 reveal" style={{ fontSize: "clamp(38px, 5vw, 72px)" }}>
+            Crush Your First or Next Ironman —<br />
+            <span className="accent">Goa 70.3 in Sub-5 Hours</span>
           </h1>
 
           <p className="challenge-line reveal">
@@ -178,13 +178,13 @@ export default function MarathonerPage() {
 
           <Countdown />
 
-          <div className="hero-layout">
-            <div className="person-wrap reveal">
+          <div className="hero-layout--cinematic">
+            <div className="person-wrap person-wrap--cinematic reveal">
               <Image
                 src="/satyam-marathoner.png"
                 alt="Satyam Sahai — 17× Ironman Finisher & Active CEO"
                 fill
-                style={{ objectFit: "cover", objectPosition: "center top" }}
+                style={{ objectFit: "cover", objectPosition: "center 18%" }}
                 priority
               />
               <div className="person-badge">
@@ -193,7 +193,7 @@ export default function MarathonerPage() {
               </div>
             </div>
 
-            <div className="meta-grid">
+            <div className="meta-grid meta-grid--row">
               {metaCards.map((card) => (
                 <div className={`meta-card reveal ${card.delay}`} key={card.label}>
                   <div className="meta-icon-wrap">{card.icon}</div>
