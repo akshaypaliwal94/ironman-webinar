@@ -6,6 +6,7 @@ import Countdown from "@/components/Countdown";
 import ScrollReveal from "@/components/ScrollReveal";
 import FunnelPopup from "@/components/FunnelPopup";
 import Footer from "@/components/Footer";
+import MobileCTABar from "@/components/MobileCTABar";
 import { useTickets } from "@/contexts/TicketContext";
 
 // ── SVG icons (reused from Hero) ──────────────────────────────────────────
@@ -146,7 +147,7 @@ export default function MarathonerPage() {
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
   return (
-    <main>
+    <main className="has-sticky-cta">
       <ScrollReveal />
       <FunnelPopup />
 
@@ -458,6 +459,7 @@ export default function MarathonerPage() {
         </div>
       </section>
       <Footer />
+      <MobileCTABar funnel="marathoner" />
     </main>
   );
 }

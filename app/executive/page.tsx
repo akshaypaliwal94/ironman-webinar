@@ -5,10 +5,11 @@ import CoachSection from "@/components/CoachSection";
 import FaqSection from "@/components/FaqSection";
 import FunnelPopup from "@/components/FunnelPopup";
 import Footer from "@/components/Footer";
+import MobileCTABar from "@/components/MobileCTABar";
 
 export default function ExecutivePage() {
   return (
-    <main>
+    <main className="has-sticky-cta">
       <FunnelPopup />
       <Hero />
       <WhoSection />
@@ -16,6 +17,7 @@ export default function ExecutivePage() {
       <CoachSection />
       <FaqSection />
       <Footer />
+      <MobileCTABar funnel="executive" />
     </main>
   );
 }
