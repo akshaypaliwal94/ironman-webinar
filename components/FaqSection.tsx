@@ -73,14 +73,6 @@ const faqs = [
       </>
     ),
   },
-  {
-    q: "What if I want to know more before registering?",
-    a: (
-      <>
-        Message us directly on <strong>WhatsApp</strong> and we&apos;ll respond within a few hours.
-      </>
-    ),
-  },
 ];
 
 export default function FaqSection() {
