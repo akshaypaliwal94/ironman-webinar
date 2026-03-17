@@ -1095,7 +1095,8 @@ body {
   /* Hero — compact, breathing room for sticky bar */
   .hero-inner { padding: 24px 16px 20px; }
   .hero-h1 { font-size: clamp(30px, 9vw, 40px); margin-bottom: 10px; line-height: 1.06; }
-  .pill { font-size: 11px; padding: 6px 14px; margin-bottom: 14px; }
+  /* Pill — 2 lines max on small mobile */
+  .pill { font-size: 10.5px; padding: 6px 12px; margin-bottom: 14px; line-height: 1.45; }
   .challenge-line { font-size: 13.5px; margin-bottom: 12px; }
   .body-copy { display: none; }
   .social-proof {
@@ -1103,7 +1104,15 @@ body {
     font-size: 11px; padding: 9px 14px; margin-bottom: 16px;
   }
   .sep { display: none; }
-  .countdown-wrap { margin-bottom: 16px; }
+
+  /* Countdown — all 4 boxes in 1 row */
+  .countdown-wrap { flex-wrap: nowrap; gap: 4px; margin-bottom: 16px; }
+  .countdown-label { font-size: 9.5px; margin-right: 2px; letter-spacing: 0.07em; }
+  .countdown-unit { min-width: 44px; padding: 6px 6px; }
+  .countdown-num { font-size: 20px; }
+  .countdown-unit-label { font-size: 8.5px; letter-spacing: 0.05em; }
+  .countdown-sep { font-size: 20px; margin-bottom: 12px; }
+
   .hero-layout { margin-top: 14px; gap: 14px; }
   .person-wrap { min-height: 180px; max-height: 210px; }
 
@@ -1193,13 +1202,21 @@ body {
 @media (max-width: 360px) {
   .hero-inner { padding: 20px 12px 16px; }
   .hero-h1 { font-size: 28px; }
+  .pill { font-size: 10px; padding: 5px 10px; }
   .section-headline { font-size: 24px; }
   .fp-card { padding: 20px 14px; }
   .fp-option { padding: 12px; gap: 10px; }
   .fp-option-icon { width: 38px; height: 38px; font-size: 17px; }
   .cta { font-size: 14px; padding: 14px 16px; }
-  .meta-grid { grid-template-columns: 1fr; }
-  .countdown-unit { min-width: 46px; padding: 6px 8px; }
+  /* Keep meta-grid 2-column at 360px */
+  .meta-grid { grid-template-columns: 1fr 1fr; }
+  .meta-card { padding: 10px 8px; }
+  .meta-value { font-size: 12px; }
+  /* Countdown stays single row */
+  .countdown-unit { min-width: 38px; padding: 5px 5px; }
+  .countdown-num { font-size: 18px; }
+  .countdown-unit-label { font-size: 8px; }
+  .countdown-sep { font-size: 18px; }
   .mobile-cta-now { font-size: 24px; }
   .mobile-cta-btn { font-size: 14px; padding: 12px 14px; }
 }
