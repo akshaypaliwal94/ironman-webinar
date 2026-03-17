@@ -106,7 +106,7 @@ export default function CoachSection() {
             <span className="price-badge">Today Only</span>
             <span className="price-now">₹97</span>
           </div>
-          <a href="#" className="cta">
+          <a href="/thank-you?funnel=executive" className="cta">
             Grab Your Ticket Now <div className="cta-arrow">→</div>
           </a>
           <div className="guarantee">🛡️ 100% Money Back Guarantee — Zero Risk</div>

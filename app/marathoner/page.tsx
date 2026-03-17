@@ -210,7 +210,7 @@ export default function MarathonerPage() {
               <span className="price-badge">Today Only</span>
               <span className="price-now">₹97</span>
             </div>
-            <a href="#" className="cta">
+            <a href="/thank-you?funnel=marathoner" className="cta">
               Grab Your Ticket Now <div className="cta-arrow">→</div>
             </a>
             <div className="guarantee">🛡️ 100% Money Back Guarantee — Zero Risk</div>
@@ -327,7 +327,7 @@ export default function MarathonerPage() {
               <span className="price-badge">Today Only</span>
               <span className="price-now">₹97</span>
             </div>
-            <a href="#" className="cta">
+            <a href="/thank-you?funnel=marathoner" className="cta">
               Grab Your Ticket Now <div className="cta-arrow">→</div>
             </a>
             <div className="guarantee">🛡️ 100% Money Back Guarantee — Zero Risk</div>
@@ -410,7 +410,7 @@ export default function MarathonerPage() {
               <span className="price-badge">Today Only</span>
               <span className="price-now">₹97</span>
             </div>
-            <a href="#" className="cta">
+            <a href="/thank-you?funnel=marathoner" className="cta">
               Grab Your Ticket Now <div className="cta-arrow">→</div>
             </a>
             <div className="guarantee">🛡️ 100% Money Back Guarantee — Zero Risk</div>
@@ -446,7 +446,7 @@ export default function MarathonerPage() {
               <span className="price-badge">Today Only</span>
               <span className="price-now">₹97</span>
             </div>
-            <a href="#" className="cta">
+            <a href="/thank-you?funnel=marathoner" className="cta">
               Grab Your Ticket Now <div className="cta-arrow">→</div>
             </a>
             <div className="guarantee">🛡️ 100% Money Back Guarantee — Zero Risk</div>
