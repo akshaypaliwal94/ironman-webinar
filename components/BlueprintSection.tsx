@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, useEffect } from "react";
 import { useTickets } from "@/contexts/TicketContext";
 
 const steps = [
@@ -74,6 +75,24 @@ const steps = [
 
 export default function BlueprintSection() {
   const tickets = useTickets();
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const lineRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const updateLine = () => {
+      if (!timelineRef.current || !lineRef.current) return;
+      const rect = timelineRef.current.getBoundingClientRect();
+      const progress = Math.min(
+        Math.max((window.innerHeight * 0.65 - rect.top) / rect.height, 0),
+        1
+      );
+      lineRef.current.style.height = `${progress * 100}%`;
+    };
+    window.addEventListener("scroll", updateLine, { passive: true });
+    updateLine();
+    return () => window.removeEventListener("scroll", updateLine);
+  }, []);
+
   return (
     <section className="blueprint-section">
       <div className="blueprint-inner">
@@ -86,7 +105,8 @@ export default function BlueprintSection() {
           <strong>zero margin for wasted training time.</strong>
         </p>
 
-        <div className="timeline">
+        <div className="timeline" ref={timelineRef}>
+          <div className="timeline-line" ref={lineRef} />
           {steps.map((step, i) => (
             <div className={`t-row ${step.side} reveal`} key={i}>
               {step.side === "left" ? (
