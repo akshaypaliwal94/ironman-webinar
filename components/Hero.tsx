@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Countdown from "./Countdown";
 import ScrollReveal from "./ScrollReveal";
+import { useTickets } from "@/contexts/TicketContext";
 
 const CalendarIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -31,6 +34,7 @@ const metaCards = [
 ];
 
 export default function Hero() {
+  const tickets = useTickets();
   return (
     <section className="hero">
       <ScrollReveal />
@@ -101,7 +105,7 @@ export default function Hero() {
           </a>
           <div className="guarantee">🛡️ 100% Money Back Guarantee — Zero Risk</div>
           <div className="urgency">
-            🔥 Only <span className="urgency-num">12</span> tickets left — booking closes once full
+            🔥 Only <span className="urgency-num">{tickets}</span> tickets left — booking closes once full
           </div>
         </div>
       </div>

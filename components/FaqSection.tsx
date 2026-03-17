@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useTickets } from "@/contexts/TicketContext";
 
 const faqs = [
   {
@@ -84,14 +85,7 @@ const faqs = [
 
 export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const [tickets, setTickets] = useState(12);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTickets((prev) => (prev > 1 ? prev - 1 : prev));
-    }, 30000);
-    return () => clearInterval(interval);
-  }, []);
+  const tickets = useTickets();
 
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
