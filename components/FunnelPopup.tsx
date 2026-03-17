@@ -19,7 +19,11 @@ export default function FunnelPopup() {
 
   const choose = (route: string) => {
     sessionStorage.setItem("funnelChosen", "true");
-    router.push(route);
+    setAnimateIn(false);
+    setTimeout(() => {
+      setVisible(false);
+      router.push(route);
+    }, 300);
   };
 
   if (!visible) return null;
