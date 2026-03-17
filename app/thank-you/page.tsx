@@ -3,6 +3,7 @@
 import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import ScrollReveal from "@/components/ScrollReveal";
+import Footer from "@/components/Footer";
 
 const steps = [
   {
@@ -85,6 +86,7 @@ function ThankYouContent() {
       </section>
 
       {/* ── BOTTOM — navy ── */}
+      <Footer />
       <section className="ty-bottom">
         <p className="ty-bottom-text reveal">
           Questions? Message us on WhatsApp and we&apos;ll respond within a few hours.

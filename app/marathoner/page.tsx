@@ -5,6 +5,7 @@ import Image from "next/image";
 import Countdown from "@/components/Countdown";
 import ScrollReveal from "@/components/ScrollReveal";
 import FunnelPopup from "@/components/FunnelPopup";
+import Footer from "@/components/Footer";
 import { useTickets } from "@/contexts/TicketContext";
 
 // ── SVG icons (reused from Hero) ──────────────────────────────────────────
@@ -456,6 +457,7 @@ export default function MarathonerPage() {
           </div>
         </div>
       </section>
+      <Footer />
     </main>
   );
 }
