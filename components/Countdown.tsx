@@ -1,0 +1,52 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+const EVENT_DATE = new Date("2026-04-05T05:30:00Z"); // 11:00 AM IST
+
+function pad(n: number) {
+  return String(n).padStart(2, "0");
+}
+
+function getTimeLeft() {
+  const diff = EVENT_DATE.getTime() - Date.now();
+  if (diff <= 0) return { days: "00", hours: "00", mins: "00", secs: "00" };
+  return {
+    days: pad(Math.floor(diff / 86400000)),
+    hours: pad(Math.floor((diff % 86400000) / 3600000)),
+    mins: pad(Math.floor((diff % 3600000) / 60000)),
+    secs: pad(Math.floor((diff % 60000) / 1000)),
+  };
+}
+
+export default function Countdown() {
+  const [time, setTime] = useState({ days: "--", hours: "--", mins: "--", secs: "--" });
+
+  useEffect(() => {
+    setTime(getTimeLeft());
+    const id = setInterval(() => setTime(getTimeLeft()), 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <div className="countdown-wrap reveal">
+      <span className="countdown-label">Event in</span>
+      {(
+        [
+          [time.days, "Days"],
+          [time.hours, "Hours"],
+          [time.mins, "Mins"],
+          [time.secs, "Secs"],
+        ] as [string, string][]
+      ).map(([value, label], i) => (
+        <>
+          {i > 0 && <span className="countdown-sep" key={`sep-${i}`}>:</span>}
+          <div className="countdown-unit" key={label}>
+            <span className="countdown-num">{value}</span>
+            <span className="countdown-unit-label">{label}</span>
+          </div>
+        </>
+      ))}
+    </div>
+  );
+}
