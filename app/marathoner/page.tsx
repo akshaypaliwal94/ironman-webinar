@@ -175,7 +175,7 @@ export default function MarathonerPage() {
           <div className="social-proof reveal">
             <span>🇮🇳 Built by 17× Ironman — Satyam Sahai</span>
             <span className="sep">·</span>
-            <span>🇦🇺 Verified by World #16 Ranked Ironman — Mitch Kibby</span>
+            <span>🇦🇺 Verified by World #16 Ranked Ironman — Mitch</span>
           </div>
 
           <Countdown />
