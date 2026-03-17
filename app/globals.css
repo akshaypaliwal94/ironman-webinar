@@ -398,7 +398,7 @@ body {
 .person-wrap {
   border-radius: 16px; overflow: hidden;
   position: relative; background: var(--navy-mid);
-  min-height: 360px;
+  min-height: 0;
   border: 2px solid rgba(232,54,10,0.38);
   box-shadow: 0 0 48px rgba(232,54,10,0.15);
 }
@@ -421,7 +421,7 @@ body {
 /* ── META CARDS ── */
 .meta-grid {
   display: grid; grid-template-columns: 1fr 1fr;
-  gap: 12px; align-content: start;
+  gap: 12px;
 }
 .meta-card {
   background: rgba(255,255,255,0.04);
@@ -1048,7 +1048,7 @@ body {
   /* Hero */
   .hero-layout { grid-template-columns: 1fr; }
   .hero-inner { padding: 40px 20px 32px; }
-  .person-wrap { min-height: 260px; }
+  .person-wrap { min-height: 260px; } /* stacked layout — explicit height needed */
   .hero-h1 { font-size: clamp(38px, 7vw, 84px); }
 
   /* Sections — tighter vertical padding */
@@ -1085,7 +1085,7 @@ body {
   .meta-grid { gap: 8px; }
   .section-sub { font-size: 14px; }
   .hero-layout { grid-template-columns: 1fr; }
-  .person-wrap { min-height: 240px; }
+  .person-wrap { min-height: 220px; }
   .who-grid { grid-template-columns: 1fr; }
   .who-card { padding: 24px 18px; }
 }
