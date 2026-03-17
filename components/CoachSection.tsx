@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
+import { useTickets } from "@/contexts/TicketContext";
 
 export default function CoachSection() {
+  const tickets = useTickets();
   return (
     <section className="coach-section">
       <div className="coach-inner">
@@ -107,7 +111,7 @@ export default function CoachSection() {
           </a>
           <div className="guarantee">🛡️ 100% Money Back Guarantee — Zero Risk</div>
           <div className="urgency">
-            🔥 Only <span className="urgency-num">12</span> tickets left — booking closes once full
+            🔥 Only <span className="urgency-num">{tickets}</span> tickets left — booking closes once full
           </div>
         </div>
       </div>

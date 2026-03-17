@@ -1,3 +1,7 @@
+"use client";
+
+import { useTickets } from "@/contexts/TicketContext";
+
 const steps = [
   {
     side: "left",
@@ -69,6 +73,7 @@ const steps = [
 ] as const;
 
 export default function BlueprintSection() {
+  const tickets = useTickets();
   return (
     <section className="blueprint-section">
       <div className="blueprint-inner">
@@ -120,7 +125,7 @@ export default function BlueprintSection() {
           </a>
           <div className="guarantee">🛡️ 100% Money Back Guarantee — Zero Risk</div>
           <div className="urgency">
-            🔥 Only <span className="urgency-num">12</span> tickets left — booking closes once full
+            🔥 Only <span className="urgency-num">{tickets}</span> tickets left — booking closes once full
           </div>
         </div>
       </div>
