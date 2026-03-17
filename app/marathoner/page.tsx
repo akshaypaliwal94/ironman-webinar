@@ -71,7 +71,7 @@ const steps = [
     side: "left",
     icon: "🏅",
     step: "Step 5",
-    title: "Your Sub-5 Game Plan — Live Q&A with Satyam & Mitch",
+    title: "Your Sub-6 Game Plan — Live Q&A with Satyam & Mitch",
     desc: "Satyam and Mitch map out your specific path live. You leave knowing exactly what to do from tomorrow.",
   },
 ] as const;
@@ -88,7 +88,7 @@ const faqs = [
   },
   {
     q: "I'm already a triathlete. Will this be too basic for me?",
-    a: <>No. The system covers <strong>VO2 zone training, brick sessions, race-day pacing, and Goa-specific nutrition</strong> — all built around getting you to Sub-5. If you&apos;ve been stuck at 6–8 hours, this is exactly where you need to be.</>,
+    a: <>No. The system covers <strong>VO2 zone training, brick sessions, race-day pacing, and Goa-specific nutrition</strong> — all built around getting you to Sub-6. If you&apos;ve been stuck at 6–8 hours, this is exactly where you need to be.</>,
   },
   {
     q: "How do I join the webinar?",
@@ -157,7 +157,7 @@ export default function MarathonerPage() {
 
           <h1 className="hero-h1 reveal" style={{ fontSize: "clamp(38px, 5vw, 72px)" }}>
             Crush Your First or Next Ironman —<br />
-            <span className="accent">Goa 70.3 in Sub-5 Hours</span>
+            <span className="accent">Goa 70.3 in Sub-6 Hours</span>
           </h1>
 
           <p className="challenge-line reveal">
@@ -260,7 +260,7 @@ export default function MarathonerPage() {
                 ].map((pt, i) => <li key={i}>{pt}</li>)}
               </ul>
               <div className="who-card-footer">
-                This webinar shows you exactly what&apos;s breaking your race and gives you the precise system to finally go Sub-5.
+                This webinar shows you exactly what&apos;s breaking your race and gives you the precise system to finally go Sub-6.
               </div>
             </div>
           </div>

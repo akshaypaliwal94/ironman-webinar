@@ -50,7 +50,7 @@ export default function FunnelPopup() {
             <div className="fp-option-icon">✅</div>
             <div className="fp-option-body">
               <div className="fp-option-title">Yes, I Have</div>
-              <div className="fp-option-sub">I want to race stronger and finally go Sub-5</div>
+              <div className="fp-option-sub">I want to race stronger and finally go Sub-6</div>
             </div>
           </button>
 
