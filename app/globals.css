@@ -274,7 +274,7 @@ body {
 }
 .price-now {
   font-family: var(--font-bebas), 'Bebas Neue', sans-serif;
-  font-size: 46px;
+  font-size: clamp(30px, 7vw, 46px);
   color: var(--red);
   letter-spacing: 0.02em;
   line-height: 1;
@@ -377,11 +377,11 @@ body {
 }
 .countdown-num {
   font-family: var(--font-bebas), 'Bebas Neue', sans-serif;
-  font-size: 34px; color: #fff;
+  font-size: clamp(24px, 5vw, 34px); color: #fff;
   line-height: 1; display: block;
 }
 .countdown-unit-label {
-  font-size: 10px; font-weight: 600;
+  font-size: 11px; font-weight: 600;
   letter-spacing: 0.08em; text-transform: uppercase;
   color: rgba(255,255,255,0.4); display: block; margin-top: 4px;
 }
@@ -521,7 +521,7 @@ body {
 }
 .who-card-title {
   font-family: var(--font-bebas), 'Bebas Neue', sans-serif;
-  font-size: 23px; letter-spacing: 0.03em;
+  font-size: clamp(18px, 3vw, 23px); letter-spacing: 0.03em;
   color: var(--text-dark); margin-bottom: 20px; line-height: 1.2;
 }
 .who-list { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 24px; }
@@ -548,7 +548,7 @@ body {
 .who-closing {
   margin-top: 44px;
   font-family: var(--font-bebas), 'Bebas Neue', sans-serif;
-  font-size: 22px; letter-spacing: 0.03em;
+  font-size: clamp(17px, 3.5vw, 22px); letter-spacing: 0.03em;
   padding: 18px 40px; background: var(--navy);
   color: #fff; border-radius: 12px; text-align: center;
 }
@@ -664,7 +664,7 @@ body {
 }
 .t-title {
   font-family: var(--font-bebas), 'Bebas Neue', sans-serif;
-  font-size: 18px; letter-spacing: 0.03em;
+  font-size: clamp(15px, 2.5vw, 18px); letter-spacing: 0.03em;
   color: #fff; background: var(--red);
   display: inline-block; padding: 5px 12px;
   border-radius: 6px; margin-bottom: 10px; line-height: 1.3;
@@ -837,7 +837,7 @@ body {
   font-size: 14px; font-weight: 400;
   color: rgba(255,255,255,0.58); line-height: 1.78;
 }
-.faq-item.open .faq-answer { max-height: 240px; padding: 0 22px 20px; }
+.faq-item.open .faq-answer { max-height: 500px; padding: 0 22px 20px; }
 .faq-answer strong { color: rgba(255,255,255,0.9); font-weight: 600; }
 .faq-cta-wrap {
   margin-top: 60px; display: flex; flex-direction: column;
@@ -865,10 +865,10 @@ body {
   display: flex; flex-direction: column; align-items: center; gap: 18px;
 }
 .ty-check-icon {
-  width: 80px; height: 80px; border-radius: 50%;
+  width: clamp(60px, 12vw, 80px); height: clamp(60px, 12vw, 80px); border-radius: 50%;
   background: var(--red);
   display: flex; align-items: center; justify-content: center;
-  font-size: 36px;
+  font-size: clamp(26px, 8vw, 36px);
   box-shadow: 0 0 0 12px rgba(232,54,10,0.12), 0 8px 32px rgba(232,54,10,0.4);
   animation: cta-breathe 2.8s ease-in-out infinite;
 }
@@ -878,7 +878,7 @@ body {
   color: #fff; line-height: 1; margin: 0;
 }
 .ty-subheadline {
-  font-size: 18px; font-weight: 400;
+  font-size: clamp(15px, 3vw, 18px); font-weight: 400;
   color: rgba(255,255,255,0.75); line-height: 1.55; margin: 0;
 }
 .ty-pill {
@@ -897,7 +897,7 @@ body {
 }
 .ty-block-title {
   font-family: var(--font-bebas), 'Bebas Neue', sans-serif;
-  font-size: 28px; letter-spacing: 0.04em;
+  font-size: clamp(22px, 4vw, 28px); letter-spacing: 0.04em;
   color: var(--text-dark); margin-bottom: 24px;
 }
 .ty-steps { display: flex; flex-direction: column; gap: 20px; }
@@ -928,7 +928,7 @@ body {
 }
 .ty-wa-title {
   font-family: var(--font-bebas), 'Bebas Neue', sans-serif;
-  font-size: 24px; letter-spacing: 0.03em; color: var(--text-dark);
+  font-size: clamp(18px, 4vw, 24px); letter-spacing: 0.03em; color: var(--text-dark);
 }
 .ty-wa-body {
   font-size: 14px; color: #555; line-height: 1.65; max-width: 480px;
@@ -965,6 +965,8 @@ body {
 .ty-back-link:hover { color: #fff; }
 
 /* ── RESPONSIVE ── */
+
+/* 860px — coaches stack */
 @media (max-width: 860px) {
   .satyam-layout { grid-template-columns: 1fr; }
   .satyam-img-wrap { aspect-ratio: 4/3; max-height: 320px; }
@@ -972,28 +974,127 @@ body {
   .coach-divider { margin: 0 auto 24px; }
   .coach-pills { justify-content: center; }
 }
-@media (max-width: 700px) {
+
+/* 768px — tablet: hero collapses, who grid collapses */
+@media (max-width: 768px) {
   .hero-layout { grid-template-columns: 1fr; }
-  .person-wrap { min-height: 280px; }
+  .person-wrap { min-height: 320px; }
   .who-grid { grid-template-columns: 1fr; }
-  .who-card { padding: 24px 20px; }
-  .timeline::before { left: 28px; }
-  .t-row { grid-template-columns: 56px 1fr; }
+  .who-card { padding: 28px 22px; }
+  .fp-card { padding: 32px 24px; }
+  .fp-headline { font-size: clamp(30px, 5vw, 38px); }
+  .mitch-block { grid-template-columns: 1fr; padding: 28px 24px; }
+  .mitch-img-wrap { width: 90px; height: 90px; border-radius: 50%; }
+  .hero-h1 { font-size: clamp(40px, 7vw, 84px); }
+  .cta-block, .faq-cta-wrap, .hero-cta-block { padding: 0 8px; }
+}
+
+/* 700px — timeline, countdown adjust */
+@media (max-width: 700px) {
+  .timeline-line { left: 24px; transform: none; }
+  .t-row { grid-template-columns: 52px 1fr; }
   .t-row.left .t-content,
   .t-row.right .t-content { grid-column: 2; text-align: left; }
-  .t-icon { grid-column: 1; grid-row: 1; width: 48px; height: 48px; font-size: 18px; }
+  .t-icon { grid-column: 1; grid-row: 1; width: 44px; height: 44px; font-size: 18px; }
   .t-empty { display: none; }
   .t-row.left .t-content::after, .t-row.left .t-content::before,
   .t-row.right .t-content::after, .t-row.right .t-content::before { display: none; }
-  .mitch-block { grid-template-columns: 1fr; padding: 24px 20px; }
-  .mitch-img-wrap { width: 90px; height: 90px; border-radius: 50%; }
-  .countdown-unit { min-width: 56px; padding: 8px 10px; }
-  .countdown-num { font-size: 28px; }
-}
-@media (max-width: 480px) {
-  .hero-h1 { font-size: 40px; }
-  .section-headline { font-size: 32px; }
+  .t-content { padding: 16px; }
+  .t-row { margin-bottom: 28px; }
+  .countdown-unit { min-width: 52px; padding: 8px 10px; }
+  .countdown-num { font-size: clamp(20px, 5vw, 28px); }
   .meta-grid { gap: 8px; }
+  .section-sub { font-size: 14px; }
+  .hero-layout { grid-template-columns: 1fr; }
+  .person-wrap { min-height: 280px; }
+  .who-grid { grid-template-columns: 1fr; }
+  .who-card { padding: 24px 18px; }
+}
+
+/* 480px — small mobile: tighten everything */
+@media (max-width: 480px) {
+  .hero-h1 { font-size: clamp(32px, 9vw, 42px); }
+  .section-headline { font-size: clamp(26px, 7vw, 32px); }
+  .hero-inner { padding: 40px 16px 56px; }
+  .pill { font-size: 11px; padding: 7px 16px; }
+  .challenge-line { font-size: 14px; }
+  .body-copy { font-size: 14px; }
+  .social-proof { font-size: 12px; padding: 9px 16px; }
+
+  /* Meta cards — single column on small mobile */
+  .meta-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .meta-card { padding: 14px 12px; }
+  .meta-icon-wrap { width: 38px; height: 38px; border-radius: 10px; margin-bottom: 10px; }
+  .meta-label { font-size: 10px; }
+  .meta-value { font-size: 13px; }
+
+  /* CTA */
+  .cta { padding: 15px 20px; font-size: 15px; }
+  .cta-arrow { width: 24px; height: 24px; font-size: 13px; }
+  .price-was { font-size: 13px; }
+  .price-badge { font-size: 10.5px; }
+  .guarantee { font-size: 12px; }
+  .urgency { font-size: 12px; padding: 8px 14px; }
+
+  /* Funnel popup */
+  .fp-card { padding: 24px 18px; border-radius: 16px; }
+  .fp-headline { font-size: clamp(28px, 8vw, 36px); margin-bottom: 20px; }
+  .fp-eyebrow { font-size: 10px; }
+  .fp-option { padding: 14px; gap: 12px; }
+  .fp-option-icon { width: 44px; height: 44px; border-radius: 10px; font-size: 20px; }
+  .fp-option-title { font-size: 15px; }
+  .fp-option-sub { font-size: 12px; }
+
+  /* Who section */
+  .who-card-icon { width: 56px; height: 56px; font-size: 26px; border-radius: 14px; margin-bottom: 14px; }
+  .who-card-footer { font-size: 12.5px; padding: 12px 14px; }
+
+  /* Timeline */
+  .t-content { padding: 14px 12px; }
+  .t-step-label { font-size: 10px; }
+
+  /* Coach */
+  .coach-name { font-size: clamp(28px, 8vw, 40px); }
+  .coach-bio { font-size: 14px; }
+  .coach-pill, .mitch-pill { font-size: 11.5px; padding: 6px 10px; }
+
+  /* FAQ */
+  .faq-section { padding: 56px 16px 64px; }
+  .faq-question { padding: 16px 16px; font-size: 14px; }
+  .faq-answer { padding: 0 16px; font-size: 13px; }
+  .faq-item.open .faq-answer { padding: 0 16px 16px; }
+
+  /* Thank you */
+  .ty-hero { padding: 48px 16px 40px; }
+  .ty-body { padding: 36px 16px 48px; }
+  .ty-whatsapp-box { padding: 20px 16px; }
+  .ty-step { gap: 14px; }
+  .ty-step-num { width: 36px; height: 36px; font-size: 18px; }
+
+  /* Footer */
+  .footer { padding: 32px 16px; }
+  .footer-brand-name { font-size: 15px; }
+
+  /* Legal */
+  .legal-page { padding: 56px 16px; }
+}
+
+/* 360px — minimum mobile support */
+@media (max-width: 360px) {
+  .hero-h1 { font-size: 30px; }
+  .section-headline { font-size: 26px; }
+  .fp-card { padding: 20px 14px; }
+  .fp-option { padding: 12px; gap: 10px; }
+  .fp-option-icon { width: 38px; height: 38px; font-size: 17px; }
+  .cta { font-size: 14px; padding: 14px 16px; }
+  .meta-grid { grid-template-columns: 1fr; }
+  .countdown-unit { min-width: 46px; padding: 6px 8px; }
+}
+
+/* Footer mobile */
+@media (max-width: 600px) {
+  .footer-row1 { flex-direction: column; align-items: center; text-align: center; }
+  .footer-row2 { flex-direction: column; align-items: center; text-align: center; }
 }
 
 /* ══ FOOTER ══ */
@@ -1035,7 +1136,7 @@ body {
   display: flex; flex-direction: column; gap: 14px;
 }
 .footer-disclaimer p {
-  font-size: 11.5px; line-height: 1.75;
+  font-size: 12px; line-height: 1.75;
   color: rgba(255,255,255,0.28);
 }
 .footer-disclaimer p strong { color: rgba(255,255,255,0.38); font-weight: 600; }
@@ -1055,14 +1156,10 @@ body {
 .footer-link {
   font-size: 12px; color: rgba(255,255,255,0.4);
   text-decoration: none;
+  padding: 4px 0;
   transition: color 0.2s ease;
 }
 .footer-link:hover { color: #fff; }
-
-@media (max-width: 600px) {
-  .footer-row1 { flex-direction: column; align-items: center; text-align: center; }
-  .footer-row2 { flex-direction: column; align-items: center; text-align: center; }
-}
 
 /* ══ LEGAL PAGES ══ */
 .legal-page {
@@ -1086,7 +1183,7 @@ body {
   font-size: 13px; font-weight: 600;
   color: rgba(255,255,255,0.45);
   background: none; border: none; cursor: pointer;
-  padding: 0; text-decoration: none;
+  padding: 10px 0; text-decoration: none;
   transition: color 0.2s ease; align-self: flex-start;
 }
 .legal-back:hover { color: #fff; }
