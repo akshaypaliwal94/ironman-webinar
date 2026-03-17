@@ -395,18 +395,6 @@ body {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 24px; width: 100%; align-items: stretch; margin-top: 12px;
 }
-.hero-layout--cinematic {
-  display: flex; flex-direction: column;
-  gap: 16px; width: 100%; margin-top: 12px;
-}
-.person-wrap--cinematic {
-  min-height: unset;
-  aspect-ratio: 21/9;
-  border-radius: 20px;
-}
-.meta-grid--row {
-  grid-template-columns: repeat(4, 1fr) !important;
-}
 .person-wrap {
   border-radius: 16px; overflow: hidden;
   position: relative; background: var(--navy-mid);
@@ -893,6 +881,4 @@ body {
   .hero-h1 { font-size: 40px; }
   .section-headline { font-size: 32px; }
   .meta-grid { gap: 8px; }
-  .meta-grid--row { grid-template-columns: repeat(2, 1fr) !important; }
-  .person-wrap--cinematic { aspect-ratio: 4/3; }
 }
