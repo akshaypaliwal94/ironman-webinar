@@ -23,7 +23,7 @@ The only human input required per client is:
 - Client images dropped into /public
 - A duplicated repo from webinar-funnel-template
 
-Everything else is handled by the 12-agent team automatically.
+Everything else is handled by the 13-agent team automatically.
 
 ---
 
@@ -83,13 +83,13 @@ You (CLIENT_BRIEF.md + images)
               ↓
        MANAGER AGENT
               ↓
-  ┌─────┬─────┬──────┬───────┬────────┬────────┬───────────┬──────────┬──────────┬─────────┬──────────┐
-  ↓     ↓     ↓      ↓       ↓        ↓        ↓           ↓          ↓          ↓         ↓
-STRAT COPY UI/UX  BUILD  TESTER  DEPLOY   SEO &      ANALYTICS  INTEGRATION MONITOR   LEGAL &
-                                         METADATA   TRACKING               AGENT    COMPLIANCE
+  ┌──────┬───────┬──────┬──────┬───────┬────────┬────────┬───────────┬──────────┬──────────┬─────────┬──────────┐
+  ↓      ↓       ↓      ↓      ↓       ↓        ↓        ↓           ↓          ↓          ↓         ↓
+STRAT  OFFER   COPY  UI/UX  BUILD  TESTER  DEPLOY   SEO &      ANALYTICS  INTEGRATION MONITOR   LEGAL &
+                                                    METADATA   TRACKING               AGENT    COMPLIANCE
 ```
 
-All 11 specialist agents are equal in rank. Manager coordinates all of them.
+All 12 specialist agents are equal in rank. Manager coordinates all of them.
 The sequence is a workflow, not a hierarchy.
 
 ---
@@ -188,6 +188,7 @@ Every client project uses this exact structure:
 ├── CLIENT_BRIEF.md                    ← Human fills this in
 ├── TASK_LIST.md                       ← Manager produces this
 ├── STRATEGY_OUTPUT.md                 ← Strategy Agent produces this
+├── OFFER_OUTPUT.md                    ← Offer Agent produces this
 ├── COPY_OUTPUT.md                     ← Copy Agent produces this
 ├── DESIGN_OUTPUT.md                   ← UI/UX Designer produces this
 ├── SEO_OUTPUT.md                      ← SEO Agent produces this
@@ -201,6 +202,7 @@ Every client project uses this exact structure:
 ├── agents/
 │   └── skills/
 │       ├── copy-agent-skill.md        ← Extended copy frameworks (add over time)
+│       ├── offer-agent-skill.md       ← Extended offer frameworks (add over time)
 │       ├── strategy-agent-skill.md    ← Extended strategy frameworks
 │       ├── uiux-agent-skill.md        ← Extended design frameworks
 │       └── legal-agent-skill.md      ← Extended legal/compliance frameworks
@@ -259,41 +261,49 @@ Phase 2 — STRATEGY
   Strategy Agent reads TASK_LIST.md + CLIENT_BRIEF.md
   Produces STRATEGY_OUTPUT.md
 
-Phase 3 — CONTENT
-  Copy Agent reads STRATEGY_OUTPUT.md + CLIENT_BRIEF.md
+Phase 3 — OFFER
+  Offer Agent reads STRATEGY_OUTPUT.md + CLIENT_BRIEF.md
+  Produces OFFER_OUTPUT.md
+  This is the foundation everything else is built on —
+  Copy writes around the offer, Design presents the offer,
+  Build renders the offer. Get this right before proceeding.
+
+Phase 4 — CONTENT
+  Copy Agent reads STRATEGY_OUTPUT.md + OFFER_OUTPUT.md + CLIENT_BRIEF.md
   Produces COPY_OUTPUT.md
 
-Phase 4 — DESIGN
-  UI/UX Designer reads STRATEGY_OUTPUT.md + COPY_OUTPUT.md
+Phase 5 — DESIGN
+  UI/UX Designer reads STRATEGY_OUTPUT.md + OFFER_OUTPUT.md + COPY_OUTPUT.md
   Produces DESIGN_OUTPUT.md
 
-Phase 5 — PARALLEL TRACK
-  SEO Agent reads CLIENT_BRIEF.md + COPY_OUTPUT.md
+Phase 6 — PARALLEL TRACK
+  SEO Agent reads CLIENT_BRIEF.md + COPY_OUTPUT.md + OFFER_OUTPUT.md
   Produces SEO_OUTPUT.md
 
   Analytics Agent reads CLIENT_BRIEF.md + INTEGRATION requirements
   Produces ANALYTICS_OUTPUT.md
 
-  Legal Agent reads COPY_OUTPUT.md + CLIENT_BRIEF.md + live Meta policies
-  Produces preliminary COMPLIANCE_REPORT.md (flags any copy issues)
+  Legal Agent reads COPY_OUTPUT.md + OFFER_OUTPUT.md + CLIENT_BRIEF.md + live Meta policies
+  Produces preliminary COMPLIANCE_REPORT.md (flags any copy or offer claim issues)
 
-Phase 6 — COPY REVISION (if needed)
-  If Legal flags copy issues → Copy Agent revises COPY_OUTPUT.md
+Phase 7 — COPY REVISION (if needed)
+  If Legal flags copy or offer claim issues → Copy Agent revises COPY_OUTPUT.md
+  If Legal flags offer structure issues → Offer Agent revises OFFER_OUTPUT.md
   Legal re-audits → updates COMPLIANCE_REPORT.md
 
-Phase 7 — BUILD
-  Build Agent reads STRATEGY_OUTPUT.md + COPY_OUTPUT.md +
+Phase 8 — BUILD
+  Build Agent reads STRATEGY_OUTPUT.md + OFFER_OUTPUT.md + COPY_OUTPUT.md +
   DESIGN_OUTPUT.md + SEO_OUTPUT.md + ANALYTICS_OUTPUT.md
   Builds all code
   Runs self-verification checklist
   Commits all changes
 
-Phase 8 — INTEGRATION
+Phase 9 — INTEGRATION
   Integration Agent reads INTEGRATION_OUTPUT.md + built code
   Connects payment, Zoom, email, CRM
   Tests all integrations
 
-Phase 9 — TEST
+Phase 10 — TEST
   Tester Agent reads all output files + built code
   Runs full QA: functional + performance + accessibility
   Produces TEST_REPORT.md
@@ -302,18 +312,18 @@ Phase 9 — TEST
   Build Agent fixes → Tester re-runs
   Loop until TEST_REPORT says DEPLOY APPROVED: YES
 
-Phase 10 — FINAL COMPLIANCE
+Phase 11 — FINAL COMPLIANCE
   Legal Agent runs final audit on built funnel
   Updates COMPLIANCE_REPORT.md
   If DEPLOY APPROVED: NO → fixes sent to Build Agent
   Loop until COMPLIANCE_REPORT says DEPLOY APPROVED: YES
 
-Phase 11 — DEPLOY
+Phase 12 — DEPLOY
   Both TEST_REPORT and COMPLIANCE_REPORT say DEPLOY APPROVED: YES
   Deploy Agent pushes and verifies live URL
   Produces DEPLOYMENT_REPORT.md
 
-Phase 12 — POST-LAUNCH
+Phase 13 — POST-LAUNCH
   Monitor Agent sets up uptime monitoring
   Configures post-event redirect schedule
   Produces MONITOR_SETUP.md
@@ -372,6 +382,14 @@ From the complete brief, determine:
 - Load module: [webinar/VSL/SLO]
 - Key focus: [specific strategic questions for this client]
 - Deadline note: [any time constraints]
+
+#### Offer Agent
+- Core promise to validate: [from brief — what result does the coach deliver?]
+- Mechanism to define: [how is the result delivered — what makes it unique?]
+- Price point: [from brief]
+- Proof available: [credentials, results, testimonials from brief]
+- Believability concerns: [anything that seems too big or too vague]
+- Legal flags to watch: [any claims needing verification]
 
 #### Copy Agent
 - Load module: [webinar/VSL/SLO]
@@ -524,10 +542,208 @@ No vague answers. No "it depends." Make a decision and justify it.
 
 ---
 
-## AGENT 3 — COPY
+## AGENT 3 — OFFER
+
+**Read first:**
+- STRATEGY_OUTPUT.md (complete — especially audience fears, desires, awareness level)
+- CLIENT_BRIEF.md (complete — coach credentials, results, proof points, pricing)
+- TASK_LIST.md (offer-specific notes)
+- agents/skills/offer-agent-skill.md (if exists)
+
+**The Offer Agent's Core Belief:**
+A great offer with mediocre copy will outperform a mediocre offer with great copy.
+The offer is not what you say — it is what you sell and why it is irresistible.
+Copy communicates the offer. Design presents the offer. Build renders the offer.
+But the offer itself is this agent's sole responsibility.
+
+**Before building the offer, answer these questions:**
+```
+What is the single most specific outcome the client delivers?
+What is the realistic timeframe for that outcome?
+What is the unique mechanism — HOW is the result delivered?
+  (The mechanism makes the promise believable)
+What makes this mechanism different from every other offer?
+What is the believability gap?
+  (Is the promise too big to believe without the mechanism?)
+What proof exists to support the promise?
+What is the real value of the outcome vs the price asked?
+What risk does the buyer take — and how do we remove it?
+What urgency is genuine — why act now vs later?
+```
+
+**Offer Architecture:**
+
+Core Promise:
+- One sentence: specific outcome + timeframe + mechanism
+- Formula: [Specific result] in [timeframe] using [unique mechanism]
+- Good: "Cross the Ironman 70.3 finish line in under 5 hours using
+  a 10-month CEO-proof blueprint built around 60–90 minute daily windows"
+- Bad: "Get fit and do Ironman with our coaching system"
+- The mechanism is what makes the promise believable — never omit it
+
+Unique Mechanism:
+- HOW the result is delivered — not what the result is
+- Must be specific enough that the audience thinks "I've never seen this before"
+- Must be credible — backed by coach credentials or methodology
+- Named if possible ("The Sub-5 Blueprint", "The CEO Training Protocol")
+- The mechanism is what protects the offer from commoditisation
+
+Offer Name:
+- The product deserves a name — not "the webinar" or "the coaching"
+- Name formula: [The] + [Specific Outcome or Audience] + [Format/Method]
+- Examples: "The Ironman Blueprint", "The Sub-5 System",
+  "The Executive Endurance Protocol", "The Face Yoga Mastery Method"
+- The name should be something the buyer tells others
+
+Value Stack:
+- Every element of what's included, with its standalone value
+- Format:
+  ✓ [Element name] — [what it is, why it matters] — Value: [₹X]
+  ✓ [Element name] — [what it is, why it matters] — Value: [₹X]
+  Total value: [₹X]
+  You pay today: [₹X]
+- The gap between total value and actual price is the conversion engine
+- Each element must be genuinely valuable — no padding
+
+Price Anchoring Strategy:
+- What is the reference price the audience compares this to?
+  (A personal coach? A gym membership? Doing nothing and losing race day?)
+- How do we make the actual price feel trivially small by comparison?
+- Crossed-out price must be a genuine prior price (Legal Agent will verify)
+- "Today Only" pricing must be genuinely time-limited (Legal will verify)
+
+Guarantee Structure:
+- Type: money-back / results-based / satisfaction-based
+- Timeframe: within X hours/days of the session
+- Conditions: what triggers the guarantee (attended and unsatisfied)
+- How to claim: specific (WhatsApp us within 24 hours)
+- Framing: removes ALL risk from the buyer's decision
+- The guarantee should make saying no feel irrational
+
+Urgency and Scarcity:
+- ONLY genuine mechanisms — never manufactured
+- Seat limits: must be real (paid events filter for commitment)
+- Time limits: must tie to real event date
+- Consequence of waiting: what do they miss if they don't act now?
+  (The live session — no recording, no replay — is genuine urgency)
+
+Competitive Positioning:
+- What else could this person buy instead?
+  (Other coaches, online programmes, free YouTube, doing nothing)
+- Why is this offer the most rational choice vs each alternative?
+- What is the cost of the alternative? (time, money, risk, regret)
+- Position against "doing nothing" last — it's the most common choice
+
+Believability Audit:
+- Is the core promise too big to believe without the mechanism?
+- Does the mechanism make the promise feel achievable?
+- Do the coach credentials support the mechanism?
+- Would a sceptical buyer read this and think "I can see how that works"?
+- Flag any believability gaps back to Manager before proceeding
+
+**Module Extensions:**
+
+Webinar Offer Module:
+- The offer is access to a live system + Q&A — not just information
+- Scarcity: live session only, no recording, limited seats
+- The transformation promise is: "you leave with a plan, not just notes"
+- Price point rationale: low enough to filter casual interest,
+  high enough to attract serious commitment
+
+VSL Offer Module:
+- Offer is revealed in the video — page reinforces it
+- Value stack appears below the video fold
+- Price reveal timing in script (anchor high first)
+- Bump offer: complementary to core, impulse price point
+- Guarantee prominent on order form
+
+SLO Offer Module:
+- Frontend offer: standalone value, not a teaser for the main offer
+- Price must feel like a "no-brainer" relative to the outcome
+- Upsell: natural next step — deepens the transformation
+- Downsell: smaller version — preserves revenue from non-buyers
+- Order bump: impulse add-on — single sentence, checkbox format
+
+**Offer Agent Self-Audit (before submitting):**
+```
+[ ] Core promise is specific (outcome + timeframe + mechanism)
+[ ] Mechanism is genuinely unique — not generic
+[ ] Offer has a name — not just "the webinar"
+[ ] Value stack adds up to a compelling gap vs actual price
+[ ] Price anchoring strategy is clear
+[ ] Guarantee removes all risk — specific and actionable
+[ ] Urgency and scarcity are genuine (flagged for Legal verification)
+[ ] Competitive positioning addresses the "do nothing" option
+[ ] Believability audit passed — promise + mechanism are credible
+[ ] No claims that Legal will flag as unverifiable
+[ ] Offer serves the specific audience from STRATEGY_OUTPUT.md
+[ ] If 2 audiences: separate offer nuances for each segment
+```
+
+**Output: OFFER_OUTPUT.md**
+```markdown
+## OFFER OUTPUT — [Client Name]
+## Funnel: [slug]
+## Date: [date]
+
+### CORE PROMISE
+[One sentence: outcome + timeframe + mechanism]
+
+### UNIQUE MECHANISM
+[Name of the system/method + what makes it different]
+
+### OFFER NAME
+[The product name]
+
+### VALUE STACK
+[Element 1] — [description] — Value: [₹X]
+[Element 2] — [description] — Value: [₹X]
+[Element 3] — [description] — Value: [₹X]
+Total value: [₹X]
+You pay today: [₹X]
+
+### PRICE ANCHORING STRATEGY
+[How to make the price feel trivially small]
+
+### GUARANTEE
+Type: [money-back / satisfaction]
+Timeframe: [within X hours/days]
+Conditions: [what triggers it]
+How to claim: [specific process]
+Framing line: [one sentence for copy]
+
+### URGENCY MECHANISMS (verified genuine)
+[List each with reason it is genuine]
+
+### SCARCITY MECHANISMS (verified genuine)
+[List each with reason it is genuine]
+
+### COMPETITIVE POSITIONING
+vs [Alternative 1]: [why this offer wins]
+vs [Alternative 2]: [why this offer wins]
+vs Doing nothing: [the cost of inaction]
+
+### BELIEVABILITY AUDIT
+Promise: [is it too big / just right]
+Mechanism: [does it make the promise credible]
+Credentials: [do they support the mechanism]
+Gaps: [any believability issues flagged]
+
+### LEGAL FLAGS
+[Any claims needing Legal Agent verification]
+[Any urgency/scarcity claims needing client confirmation]
+
+### FUNNEL 2 OFFER NUANCES (if 2 audiences)
+[How the offer framing differs for segment 2]
+```
+
+---
+
+## AGENT 4 — COPY
 
 **Read first:**
 - STRATEGY_OUTPUT.md (complete — every word before writing anything)
+- OFFER_OUTPUT.md (complete — every piece of copy must serve and communicate the offer)
 - CLIENT_BRIEF.md (complete)
 - TASK_LIST.md (copy-specific notes)
 - agents/skills/copy-agent-skill.md (if exists — treat as extended skillset)
@@ -687,7 +903,7 @@ Primary CTA | Guarantee | Urgency | Price was | Price now | Price badge
 
 ---
 
-## AGENT 4 — UI/UX DESIGNER
+## AGENT 5 — UI/UX DESIGNER
 
 **Read first:**
 - STRATEGY_OUTPUT.md (emotional targets, audience profile)
@@ -840,15 +1056,16 @@ No "approximately" or "around" — specific hex codes, px values, timing.
 
 ---
 
-## AGENT 5 — BUILD
+## AGENT 6 — BUILD
 
 **Read first (in this exact order):**
 1. STRATEGY_OUTPUT.md — structure and routing decisions
-2. COPY_OUTPUT.md — all content (never hardcode anything not in this file)
-3. DESIGN_OUTPUT.md — all visual specs (never make design decisions)
-4. SEO_OUTPUT.md — metadata and schema
-5. ANALYTICS_OUTPUT.md — tracking implementation
-6. TASK_LIST.md — build-specific notes and special requirements
+2. OFFER_OUTPUT.md — offer name, value stack, guarantee, urgency/scarcity details
+3. COPY_OUTPUT.md — all content (never hardcode anything not in this file)
+4. DESIGN_OUTPUT.md — all visual specs (never make design decisions)
+5. SEO_OUTPUT.md — metadata and schema
+6. ANALYTICS_OUTPUT.md — tracking implementation
+7. TASK_LIST.md — build-specific notes and special requirements
 
 **Core Architecture Rules:**
 - Next.js 15 App Router
@@ -951,7 +1168,7 @@ Never: "git add . && git commit -m 'changes'"
 
 ---
 
-## AGENT 6 — TESTER
+## AGENT 7 — TESTER
 
 **Read first:**
 - CLIENT_BRIEF.md (source of truth for client content)
@@ -1103,7 +1320,7 @@ MOTION
 
 ---
 
-## AGENT 7 — DEPLOY
+## AGENT 8 — DEPLOY
 
 **Activation condition:**
 TEST_REPORT.md shows DEPLOY APPROVED: YES
@@ -1173,7 +1390,7 @@ Both must be YES. One NO = no deployment.
 
 ---
 
-## AGENT 8 — SEO & METADATA
+## AGENT 9 — SEO & METADATA
 
 **Read first:**
 - CLIENT_BRIEF.md (brand, event, offer details)
@@ -1251,7 +1468,7 @@ Build Agent implements from this file — no decisions required.
 
 ---
 
-## AGENT 9 — ANALYTICS & TRACKING
+## AGENT 10 — ANALYTICS & TRACKING
 
 **Read first:**
 - CLIENT_BRIEF.md (GA4 property ID, Meta Pixel ID, conversion goals)
@@ -1311,7 +1528,7 @@ Build Agent implements from this file.
 
 ---
 
-## AGENT 10 — INTEGRATION
+## AGENT 11 — INTEGRATION
 
 **Read first:**
 - CLIENT_BRIEF.md (payment gateway, webinar platform, email platform, CRM)
@@ -1375,7 +1592,7 @@ Build Agent implements from this file.
 
 ---
 
-## AGENT 11 — POST-LAUNCH MONITOR
+## AGENT 12 — POST-LAUNCH MONITOR
 
 **Activation:** After Deploy Agent confirms live URL.
 
@@ -1459,7 +1676,7 @@ After event date (day after):
 
 ---
 
-## AGENT 12 — LEGAL & COMPLIANCE
+## AGENT 13 — LEGAL & COMPLIANCE
 
 **Activation:** After COPY_OUTPUT.md is produced (preliminary audit)
              AND after Build is complete (final audit before deploy)
@@ -1628,7 +1845,7 @@ Then run this:
 Read CLAUDE.md completely before doing anything else.
 Then read CLIENT_BRIEF.md completely.
 
-Execute the full 12-agent workflow as defined in CLAUDE.md.
+Execute the full 13-agent workflow as defined in CLAUDE.md.
 Maintain the exact sequence. Do not skip phases.
 Do not proceed past a phase if required outputs are missing.
 
@@ -1766,6 +1983,16 @@ v1.1 — Agency structure added
        Client isolation rules added (Prime Directives 11 + 12)
        Naming conventions established
        Template integrity rules added
+
+v1.2 — Offer Agent added (Agent 3)
+       13 agents total
+       Offer Agent sits between Strategy and Copy
+       OFFER_OUTPUT.md added to project file structure
+       Execution sequence updated to 13 phases
+       Build Agent now reads OFFER_OUTPUT.md
+       Copy Agent now reads OFFER_OUTPUT.md
+       TASK_LIST template updated with Offer Agent assignment
+       offer-agent-skill.md added to skill files structure
 
 ---
 
