@@ -96,7 +96,7 @@ export default function FaqSection() {
           {faqs.map((faq, i) => {
             const isOpen = openIndex === i;
             return (
-              <div className={`faq-item${isOpen ? " open" : ""} reveal`} key={i}>
+              <div className={`faq-item${isOpen ? " open" : ""}`} key={i}>
                 <button className="faq-question" onClick={() => toggle(i)} aria-expanded={isOpen}>
                   {faq.q}
                   <div className="faq-icon">{isOpen ? "−" : "+"}</div>

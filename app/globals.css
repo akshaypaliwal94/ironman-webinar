@@ -551,13 +551,14 @@ body {
 .faq-question {
   width: 100%; display: flex; align-items: center;
   justify-content: space-between; padding: 18px 22px;
-  background: transparent; border: none; cursor: pointer;
+  -webkit-appearance: none; appearance: none;
+  background-color: transparent; border: none; cursor: pointer;
   font-family: var(--font-inter), 'Inter', sans-serif;
   font-size: 15px; font-weight: 600;
   color: rgba(255,255,255,0.88); text-align: left; gap: 12px;
   transition: color 0.15s;
 }
-.faq-item.open .faq-question { color: #fff; background: transparent; }
+.faq-item.open .faq-question { color: #fff; background-color: transparent; }
 .faq-icon {
   width: 30px; height: 30px; border-radius: 50%;
   background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.65);
